@@ -41,6 +41,6 @@ int menu(int choose)
 }
 double add(double operand1)
 {
-
+  return -operand1;
 
 }
