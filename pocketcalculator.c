@@ -7,13 +7,17 @@ double performoperation(int,double,double);
 
 int main(int argc, char const *argv[])
 {
+double value = 0.0;
 int choose = 0;
-menu(choose);
+int input = 0;
+
+input = menu(choose);
 
 double operand1 = 0;
 double operand2 = 0;
 getoperands(&operand1,&operand2);
-performoperation(choose,operand1,operand2);
+value = performoperation(input,operand1,operand2);
+printf("Ergebnis:%f\n",value);
 }
 
   int menu(int choose)
@@ -27,10 +31,11 @@ performoperation(choose,operand1,operand2);
       printf("Stop program (-1)\n");
       printf("Enter your choice:\n");
       scanf("%d", &choose);
-
+      if (choose >= 5 || choose <= -2) {
+        printf("Input not allowed, please try again\n");
+      }
     } while(choose >= 5 || choose <= -2);
-
-    return choose;
+      return choose;
   }
 
     void getoperands(double *operand1,double *operand2)
@@ -40,9 +45,9 @@ performoperation(choose,operand1,operand2);
       printf("Geben Sie nun die 2.Operande ein\n");
       scanf("%lf",operand2);
     }
-double performoperation(int choose,double operand1,double operand2){
+double performoperation(int input,double operand1,double operand2){
 double result = 0;
-switch (choose)
+switch (input)
 {
   case 1:
   result = operand1 + operand2;
