@@ -7,17 +7,24 @@ double performoperation(int,double,double);
 
 int main(int argc, char const *argv[])
 {
-double value = 0.0;
-int choose = 0;
-int input = 0;
+  do {
+    double value = 0.0;
+    int choose = 0;
+    int input = 0;
 
-input = menu(choose);
+    input = menu(choose);
+    if (input == -1) {
+      break;
+    }
 
-double operand1 = 0;
-double operand2 = 0;
-getoperands(&operand1,&operand2);
-value = performoperation(input,operand1,operand2);
-printf("Ergebnis:%f\n",value);
+
+    double operand1 = 0;
+    double operand2 = 0;
+    getoperands(&operand1,&operand2);
+    value = performoperation(input,operand1,operand2);
+    printf("Ergebnis:%f\n",value);
+  } while(1);
+
 }
 
   int menu(int choose)
